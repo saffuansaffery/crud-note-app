@@ -14,7 +14,7 @@ async function getNotes(){
         const data = await db.collection('Notes').getFullList();
         // const fakeData = {
         //     "Title": "2nd test",
-        //     "Content": "test"
+        //     "Content": "test
         // };
         
         // const record = await db.collection('Notes').create(fakeData);
@@ -36,11 +36,13 @@ export default async function NotesPage(){
         <div>
             <ul>
                 {notes?.map((note) => (
-                    <li key={note.id} className='mt-3 ml-4'>
-                        <h3>Title: {note.Title}</h3>
-                        <p>Content:"{note.Content}"</p>
-                        <hr className='my-2'></hr>
-                    </li>
+                    <a href={`/notes/${note.id}`}>
+                        <li key={note.id} className='mt-3 ml-4'>
+                            <h3>Title: {note.Title}</h3>
+                            <p>Content:"{note.Content}"</p>
+                            <hr className='my-2'></hr>
+                        </li>
+                    </a>
                 ))}
             </ul>
         </div>
