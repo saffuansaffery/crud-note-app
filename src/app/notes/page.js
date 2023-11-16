@@ -2,7 +2,6 @@ import PocketBase from 'pocketbase';
 import Create from './createNote.js';
 
 async function fetchNotes(){
-
     try {
         const pb = new PocketBase('http://127.0.0.1:8090');
         const data = await pb.collection('Notes').getFullList({sort: '+created'}); 

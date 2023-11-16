@@ -5,7 +5,7 @@ async function getNote(noteId) {
 
     const record = await pb.collection('Notes').getOne(noteId);
 
-    console.log(record)
+    // console.log(record)
     return record;
 }
 
