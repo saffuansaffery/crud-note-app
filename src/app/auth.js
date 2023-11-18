@@ -6,30 +6,26 @@ export default function Auth() {
     const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
 
-    const pb = new PocketBase('http://127.0.0.1:8090');
 
     const register = async () => {
     try {
+        const pb = new PocketBase('http://127.0.0.1:8090');
         console.log(email);
         console.log(password)
         const data = {
-            "username": "test_username",
             "email": email,
             "emailVisibility": true,
             "password":password,
-            "passwordConfirm": "12345678",
+            "passwordConfirm": password,
             "name": "test"
         };
-        // Create a new user record
         const record = await pb.collection('users').create(data);
         console.log('User record created:', record);
 
-        // Request email verification
-        await pb.collection('users').requestVerification(data.email);
+        await pb.collection('users').requestVerification(email);
         console.log('Verification request sent.');
         } catch (error) {
-        console.error('Error during registration:', error);
-      // Handle error appropriately (e.g., display an error message to the user)
+        console.error('Error during registration:', error.data);
         }
     };
 
