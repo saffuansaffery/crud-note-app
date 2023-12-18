@@ -43,10 +43,6 @@ export default function Register() {
         <div className='w-screen flex flex-column justify-center border-b border-gray-900/10 pb-12 pt-5'>
             <form className='w-1/3'>
                 <h2 className='text-base font-semibold leading-7 text-gray-900'>Login</h2>
-                <h3>Login status: {authStatus}</h3>
-                {pb.authStore.model && 
-                    <h3>User id: {pb.authStore.model.id}</h3>
-                }
                 <div className='mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6'>
                     <div className='sm:col-span-3'>
                         <label htmlFor="email-login" className='block text-sm font-medium leading-6 text-gray-900'>Email address</label>
